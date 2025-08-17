@@ -4,6 +4,12 @@ pipeline {
     maven 'M3'  // nếu đã config Maven tool; nếu dùng mvnw thì bỏ tools { } đi
   }
   stages {
+    stage('Hello') {
+      steps {
+        echo "Hello You"
+      }
+    }
+  stages {
     stage('Checkout') {
       steps {
         git url: 'https://github.com/bezkoder/spring-boot-3-rest-api-example.git', branch: 'master'
