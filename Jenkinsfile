@@ -1,9 +1,8 @@
 pipeline {
   agent any
   tools {
-    maven 'M3'  // nếu đã config Maven tool; nếu dùng mvnw thì bỏ tools { } đi
+    maven 'M3'
   }
-  
   stages {
     stage('Hello') {
       steps {
@@ -17,9 +16,7 @@ pipeline {
     }
     stage('Build & Test') {
       steps {
-        // Nếu dùng mvn có trên PATH
-        // sh 'mvn clean install'
-        // Hoặc dùng Maven Wrapper:
+        sh 'chmod +x mvnw'
         sh './mvnw clean install'
       }
     }
